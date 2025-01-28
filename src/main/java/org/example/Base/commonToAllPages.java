@@ -23,26 +23,23 @@ public class commonToAllPages {
     }
 
     //getTitle
-    protected String getTitle() {
+    protected String getPageTitle() {
         return DriverManager.getDriver().getTitle();
     }
 
 
-    public WebElement presenceofElement(By elementlocation) {
-       return new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(10)).until(ExpectedConditions.presenceOfElementLocated(elementlocation));
+    //Waits
+    protected WebElement presenceofElement(By elementlocation) {
+       return new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(20)).until(ExpectedConditions.presenceOfElementLocated(elementlocation));
     }
 
-    public WebElement visibleofElement(By elementlocation) {
-        return new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOfElementLocated(elementlocation));
+    protected WebElement visibleofElement(By elementlocation) {
+        return new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(20)).until(ExpectedConditions.visibilityOfElementLocated(elementlocation));
     }
 
-    public WebElement clickableofElement(By elementlocation) {
-        return new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(elementlocation));
+    protected WebElement clickableofElement(By elementlocation) {
+        return new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(20)).until(ExpectedConditions.elementToBeClickable(elementlocation));
     }
-
-
-
-
 
 
 }

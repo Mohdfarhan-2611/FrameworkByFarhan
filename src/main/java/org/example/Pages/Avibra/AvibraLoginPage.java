@@ -14,22 +14,32 @@ public class AvibraLoginPage extends commonToAllPages {
 
 
     //Actions
-    public void enterUsername(String user)
+    public AvibraLoginPage enterUsername(String user)
     {
+        visibleofElement(textbox_username);
         EnterText(textbox_username, user);
+        return this;
 
     }
 
-    public void enterPassword(String pass)
+    public AvibraLoginPage enterPassword(String pass)
     {
+        visibleofElement(textbox_password);
         EnterText(textbox_password, pass);
+        return this;
 
     }
 
-    public void clickLogin()
+    public AvibraHomePage clickLogin()
     {
-       ClickElement(login_btn);
+        visibleofElement(login_btn);
+        ClickElement(login_btn);
+        return new AvibraHomePage();
+    }
 
+    public String getTitle()
+    {
+        return getPageTitle();
     }
 
 

@@ -39,12 +39,12 @@ public class PropertiesReader {
 
 
     public static String readKey(String key) throws Exception {
-      if(Objects.isNull(key))
+      if(Objects.isNull(key) || Objects.isNull(propertyreadermap.get(key.toLowerCase())))
       {
           throw new Exception("Property name "+key+" is not found in PropertyReader");
       }
 
-      return propertyreadermap.get(key);
+      return propertyreadermap.get(key.toLowerCase());
 
     }
 
