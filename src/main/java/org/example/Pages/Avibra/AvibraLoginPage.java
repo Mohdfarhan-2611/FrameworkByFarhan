@@ -1,9 +1,10 @@
 package org.example.Pages.Avibra;
 
+import org.example.Base.commonToAllPages;
 import org.example.Driver.DriverManager;
 import org.openqa.selenium.By;
 
-public class AvibraLoginPage {
+public class AvibraLoginPage extends commonToAllPages {
 
     //Locators
     private final By textbox_username= By.xpath("//input[@type='email']");
@@ -13,22 +14,22 @@ public class AvibraLoginPage {
 
 
     //Actions
-    public AvibraLoginPage enterUsername(String user)
+    public void enterUsername(String user)
     {
-        DriverManager.getDriver().findElement(textbox_username).sendKeys(user);
-        return this;
+        EnterText(textbox_username, user);
+
     }
 
-    public AvibraLoginPage enterPassword(String pass)
+    public void enterPassword(String pass)
     {
-        DriverManager.getDriver().findElement(textbox_password).sendKeys(pass);
-        return this;
+        EnterText(textbox_password, pass);
+
     }
 
-    public AvibraHomePage clickLogin()
+    public void clickLogin()
     {
-       DriverManager.getDriver().findElement(login_btn).click();
-       return new AvibraHomePage();
+       ClickElement(login_btn);
+
     }
 
 

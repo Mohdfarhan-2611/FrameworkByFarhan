@@ -1,11 +1,12 @@
 package org.example.Driver;
 
+import org.example.Base.commonToAllPages;
 import org.example.Utils.PropertiesReader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-public class DriverManager {
+public class DriverManager  {
 
     private DriverManager() {
 

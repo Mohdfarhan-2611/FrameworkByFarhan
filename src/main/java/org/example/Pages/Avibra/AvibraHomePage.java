@@ -1,9 +1,10 @@
 package org.example.Pages.Avibra;
 
+import org.example.Base.commonToAllPages;
 import org.example.Driver.DriverManager;
 import org.openqa.selenium.By;
 
-public class AvibraHomePage {
+public class AvibraHomePage extends commonToAllPages {
 
 
 
@@ -15,17 +16,15 @@ public class AvibraHomePage {
 
 
     //Actions
-    public AvibraHomePage clickProfileIcon()
+    public void clickProfileIcon()
     {
-        DriverManager.getDriver().findElement(profile_icon).click();
-        return this;
+        ClickElement(profile_icon);
     }
 
 
-    public AvibraLoginPage clickLogoutbtn()
+    public void clickLogoutbtn()
     {
-        DriverManager.getDriver().findElement(logout_btn).click();
-        return new AvibraLoginPage();
+        ClickElement(logout_btn);
     }
 
 
