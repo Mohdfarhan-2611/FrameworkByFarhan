@@ -2,9 +2,7 @@ package org.example.Base;
 
 import org.example.Driver.DriverManager;
 import org.example.Driver.DriverManagerTL;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.*;
 
 public class BaseTest {
  //public>protected>Default>private
@@ -12,16 +10,17 @@ public class BaseTest {
 protected BaseTest(){};
 
 
-@BeforeTest
-public void setup(){
- DriverManager.init();
-}
+ @BeforeMethod
+ public void setup() {
+  DriverManager.init();  // Ensure WebDriver is initialized before every test
+ }
 
 
-@AfterTest
-public void TearDown(){
- DriverManager.quit();
-}
+
+ @AfterMethod
+ public void TearDown() {
+  DriverManager.quit();
+ }
 
 
 
