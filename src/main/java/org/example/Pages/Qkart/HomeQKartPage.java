@@ -1,7 +1,9 @@
 package org.example.Pages.Qkart;
 
+import org.apache.logging.log4j.Logger;
 import org.example.Base.BasePage;
 import org.example.Enums.WaitTypes;
+import org.example.Utils.LoggerUtility;
 import org.openqa.selenium.By;
 
 public class HomeQKartPage extends BasePage {
@@ -76,10 +78,10 @@ public class HomeQKartPage extends BasePage {
     public HomeQKartPage placeOrder() throws InterruptedException {
          waitPresent(FIRST_ITEM_ADD_TO_CART);
          ScrollToElement(FIRST_ITEM_ADD_TO_CART, WaitTypes.PRESENT);
-         ClickElement(FIRST_ITEM_ADD_TO_CART, WaitTypes.CLICKABLE);
+         ClickElement(FIRST_ITEM_ADD_TO_CART, WaitTypes.CLICKABLE,"FirstItem");
          waitPresent(CHECKOUT_BUTTON);
          MoveToElementByAction(CHECKOUT_BUTTON, WaitTypes.PRESENT);
-         ClickElement(CHECKOUT_BUTTON, WaitTypes.CLICKABLE);
+         ClickElement(CHECKOUT_BUTTON, WaitTypes.CLICKABLE,"Checkout button");
          Thread.sleep(5000);
          return this;
     }
@@ -92,15 +94,15 @@ public class HomeQKartPage extends BasePage {
         ClickElementByJS(SIZE_DROPDOWN, WaitTypes.VISIBLE);
         SelectbyVisibleText(SIZE_DROPDOWN, "7", WaitTypes.VISIBLE);
         Thread.sleep(5000);
-        ClickElement(SHOE_ADD_TO_CART, WaitTypes.CLICKABLE);
+        ClickElement(SHOE_ADD_TO_CART, WaitTypes.CLICKABLE,"Shoe add to cart");
         waitPresent(PLUS_ICON);
         MoveToElementByAction(PLUS_ICON, WaitTypes.PRESENT);
-        ClickElement(PLUS_ICON, WaitTypes.CLICKABLE);
+        ClickElement(PLUS_ICON, WaitTypes.CLICKABLE,"Plus icon");
         Thread.sleep(2000);
-        ClickElement(PLUS_ICON, WaitTypes.CLICKABLE);
+        ClickElement(PLUS_ICON, WaitTypes.CLICKABLE, "Plus icon");
         Thread.sleep(2000);
         waitVisible(CHECKOUT_BUTTON);
-        ClickElement(CHECKOUT_BUTTON, WaitTypes.CLICKABLE);
+        ClickElement(CHECKOUT_BUTTON, WaitTypes.CLICKABLE, "Checkout Button");
         return this;
     }
 

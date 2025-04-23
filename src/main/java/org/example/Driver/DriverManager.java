@@ -18,9 +18,9 @@ public class DriverManager {
     protected DriverManager() {
     }
 
+
     //launch browser and geturl
     public static void init() {
-        System.out.println("Initializing WebDriver...");
         String browser = PropertiesUtils.readkey("browser");
         boolean isheadless = Boolean.parseBoolean(PropertiesUtils.readkey("isheadless"));
 
@@ -57,7 +57,7 @@ public class DriverManager {
                         } else {
                             firefoxOptions.addArguments("--start-maximized");
                         }
-                        DriverManagerTL.setDriver(new FirefoxDriver(firefoxOptions));
+                        DriverManagerTL.setDriver(new FirefoxDriver(firefoxOptions)); //firefoxsession
                         DriverManagerTL.getDriver().get(PropertiesUtils.readkey("url"));
                         break;
 
@@ -84,7 +84,6 @@ public class DriverManager {
 
     public static void quit() {
         if (Objects.nonNull(DriverManagerTL.getDriver())) {
-            System.out.println("Closing browser...");
             DriverManagerTL.getDriver().quit();
             DriverManagerTL.unload();
         }

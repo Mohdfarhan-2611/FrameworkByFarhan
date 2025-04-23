@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 public class DriverManagerTL {
     //constructor
 
-   protected DriverManagerTL(){};
+   private DriverManagerTL(){};
 
    private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
@@ -18,3 +18,10 @@ public class DriverManagerTL {
 
     public static void unload() { driver.remove(); }
 }
+
+
+
+
+
+
+

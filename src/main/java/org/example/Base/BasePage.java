@@ -3,12 +3,12 @@ package org.example.Base;
 import org.example.Driver.DriverManagerTL;
 import org.example.Enums.WaitTypes;
 import org.example.Factory.ExplicitWaitFactory;
+import org.example.Reports.ExtentLogger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
 import java.util.List;
 
@@ -18,9 +18,10 @@ public class BasePage {
 
 
     //ClickElement
-    public static void ClickElement(By locator, WaitTypes waitTypes){
+    public static void ClickElement(By locator, WaitTypes waitTypes, String elementname){
         WebElement clickElement = ExplicitWaitFactory.performExplicitwait(waitTypes, locator);
         clickElement.click();
+        ExtentLogger.pass(elementname+" is clicked");
     }
 
     //ClickElementByJS
@@ -29,12 +30,15 @@ public class BasePage {
         JavascriptExecutor js = ((JavascriptExecutor) DriverManagerTL.getDriver());
         WebElement element = ExplicitWaitFactory.performExplicitwait(waitTypes, locator);
         js.executeScript("arguments[0].click();",element);
+
+
     }
 
     //SendKeys
-    public static void EnterText(By loator, String value, WaitTypes waitTypes) {
+    public static void EnterText(By loator, String value, WaitTypes waitTypes, String elementname) {
         WebElement entertext = ExplicitWaitFactory.performExplicitwait(waitTypes, loator);
         entertext.sendKeys(value);
+        ExtentLogger.pass(value+" is succesfully entered "+elementname+" is entered");
     }
 
 

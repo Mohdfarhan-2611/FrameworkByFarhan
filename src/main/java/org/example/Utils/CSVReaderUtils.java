@@ -29,7 +29,6 @@ public class CSVReaderUtils {
         fileReader = new FileReader(csvFilePath);
         csvReader = new CSVReader(fileReader);
         csvReader.readNext();   //Skips first row
-
         while ((line= csvReader.readNext())!=null)
         {
             usersdata = new LoginQKartUser(line[0], line[1], line[2], line[3]);

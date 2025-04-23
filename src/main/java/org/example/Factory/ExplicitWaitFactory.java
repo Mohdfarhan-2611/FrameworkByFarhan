@@ -13,7 +13,7 @@ public class ExplicitWaitFactory {
 
     private static final int EXPLICITWAIT = 30;
 
-     public static int getExplicitwait()
+    public static int getExplicitwait()
      {
          return EXPLICITWAIT;
      }
