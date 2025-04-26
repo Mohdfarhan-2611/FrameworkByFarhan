@@ -1,12 +1,10 @@
 package org.example.Test.QKart;
 
-import org.apache.logging.log4j.Logger;
+
 import org.example.Base.BaseTest;
 import org.example.Listener.MyRetryAnalyzer;
 import org.example.POJO.LoginQKartUser;
-import org.example.Pages.Qkart.HomeQKartPage;
 import org.example.Pages.Qkart.LoginQKartPage;
-import org.example.Utils.LoggerUtility;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -27,6 +25,6 @@ public class QkartLoginTest extends BaseTest {
     @Test(description = "verify user is not able to login with invalid credentials",groups = {"regression"}, dataProviderClass=org.example.DataProvider.DataProviderGetData.class, dataProvider = "LOGINDATAFROMCSVFILE", retryAnalyzer = MyRetryAnalyzer.class)
     public void InvalidLogin(LoginQKartUser loginQKartUser) {
         String error = new LoginQKartPage().doInValidLogin(loginQKartUser.getInvalidusername(), loginQKartUser.getInvalidpassword());
-        Assert.assertEquals(error,"Username does not exist");
+        Assert.assertEquals(error,"Username does not exis");
     }
 }

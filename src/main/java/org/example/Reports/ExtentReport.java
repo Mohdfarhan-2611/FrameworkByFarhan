@@ -2,6 +2,10 @@ package org.example.Reports;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import org.apache.commons.io.FileUtils;
+import org.example.Driver.DriverManagerTL;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 
 import java.awt.*;
 import java.io.File;
@@ -35,5 +39,8 @@ public final class ExtentReport {
         ExtentReportManager.setExtentTest(extentReport.createTest(testcaseName));
 
     }
+
+
+
 
 }

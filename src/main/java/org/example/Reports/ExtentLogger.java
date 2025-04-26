@@ -19,5 +19,9 @@ public final class ExtentLogger {
      ExtentReportManager.getExtentTest().skip(message);
     }
 
+    public static void addScreenshotpath(String path){
+        ExtentReportManager.getExtentTest().addScreenCaptureFromPath(path);
+    }
+
 
 }

@@ -1,6 +1,8 @@
 package org.example.Listener;
 
 import org.apache.logging.log4j.Logger;
+import org.example.Base.BasePage;
+import org.example.Base.BaseTest;
 import org.example.Reports.ExtentLogger;
 import org.example.Reports.ExtentReport;
 import org.example.Utils.LoggerUtility;
@@ -11,8 +13,6 @@ import org.testng.ITestResult;
 
 import java.io.IOException;
 import java.util.Arrays;
-
-
 
 
 public class TestListener implements ITestListener, ISuiteListener {
@@ -27,25 +27,34 @@ public class TestListener implements ITestListener, ISuiteListener {
 
 
     public void onTestSuccess(ITestResult result) {
-        logger.info(result.getMethod().getMethodName() + " "+ "PASSED");
-        ExtentLogger.pass(result.getMethod().getMethodName() + " "+ "PASSED");
+        logger.info(result.getMethod().getMethodName() + " " + "PASSED");
+        ExtentLogger.pass(result.getMethod().getMethodName() + " " + "PASSED");
     }
 
 
     public void onTestFailure(ITestResult result) {
-        logger.info(result.getMethod().getMethodName() + " "+ "FAILED");
+        logger.info(result.getMethod().getMethodName() + " " + "FAILED");
         logger.info(result.getThrowable().getMessage());
-        ExtentLogger.fail(result.getMethod().getMethodName() + " "+ "Failed");
+        ExtentLogger.fail(result.getMethod().getMethodName() + " " + "Failed");
+        ExtentLogger.fail(result.getThrowable().getMessage());
+        Object testClass = result.getInstance();
+        try {
+            BasePage basePage = ((BaseTest) testClass).getInstance();
+            String screenshotPath = basePage.takeScreenshot(result.getMethod().getMethodName());
+            ExtentLogger.addScreenshotpath(screenshotPath);
+        } catch (Exception e) {
+            ExtentLogger.fail("Screenshot capture failed: " + e.getMessage());
+        }
+
 
     }
 
 
     public void onTestSkipped(ITestResult result) {
-        logger.warn(result.getMethod().getMethodName() + " "+"SKIPPED");
-        ExtentLogger.skip(result.getMethod().getMethodName() + " "+ "Skipped");
+        logger.warn(result.getMethod().getMethodName() + " " + "SKIPPED");
+        ExtentLogger.skip(result.getMethod().getMethodName() + " " + "Skipped");
+        ExtentLogger.skip(result.getThrowable().getMessage());
     }
-
-
 
 
     public void onStart(ITestContext context) {

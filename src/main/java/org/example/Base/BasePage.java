@@ -1,5 +1,6 @@
 package org.example.Base;
 
+import org.apache.commons.io.FileUtils;
 import org.example.Driver.DriverManagerTL;
 import org.example.Enums.WaitTypes;
 import org.example.Factory.ExplicitWaitFactory;
@@ -9,7 +10,12 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Date;
 import java.util.List;
 
 public class BasePage {
@@ -108,7 +114,21 @@ public class BasePage {
     }
 
 
-
+    public String takeScreenshot(String name) {
+        TakesScreenshot screenshot = (TakesScreenshot) DriverManagerTL.getDriver();
+        File screenshotData = screenshot.getScreenshotAs(OutputType.FILE);
+        Date date = new Date();
+        SimpleDateFormat format = new SimpleDateFormat("HH-mm-ss");
+        String timeStamp = format.format(date);
+        String path = System.getProperty("user.dir") + "/screenshots/" + name+" - "+timeStamp+".png";
+        File screenshotFile = new File(path);
+        try {
+            FileUtils.copyFile(screenshotData, screenshotFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return path;
+    }
 
 
 
