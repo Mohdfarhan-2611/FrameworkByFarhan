@@ -38,6 +38,7 @@ public class TestListener implements ITestListener, ISuiteListener {
         ExtentLogger.fail(result.getMethod().getMethodName() + " " + "Failed");
         ExtentLogger.fail(result.getThrowable().getMessage());
         Object testClass = result.getInstance();
+
         try {
             BasePage basePage = ((BaseTest) testClass).getInstance();
             String screenshotPath = basePage.takeScreenshot(result.getMethod().getMethodName());
