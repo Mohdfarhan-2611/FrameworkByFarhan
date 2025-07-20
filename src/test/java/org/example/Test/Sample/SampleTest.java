@@ -23,6 +23,7 @@ public class SampleTest {
         chromeOptions.addArguments("--start-maximized");
         chromeOptions.addArguments("--incognito");
         WebDriver driver = new ChromeDriver(chromeOptions);
+        //Explicitwait
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         //Launch URL

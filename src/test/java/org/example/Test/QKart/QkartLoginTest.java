@@ -26,5 +26,7 @@ public class QkartLoginTest extends BaseTest {
     public void InvalidLogin(LoginQKartUser loginQKartUser) {
         String error = new LoginQKartPage().doInValidLogin(loginQKartUser.getInvalidusername(), loginQKartUser.getInvalidpassword());
         Assert.assertEquals(error,"Username does not exis");
+
+
     }
 }

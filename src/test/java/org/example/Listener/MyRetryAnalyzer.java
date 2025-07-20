@@ -5,14 +5,14 @@ import org.testng.ITestResult;
 
 public class MyRetryAnalyzer implements IRetryAnalyzer {
 
-    public static final int MAX_ATTEMPS = 3;
-    public static int currentAttempt =1;
+    private static final int MAX_ATTEMPS = 3;
+    private static int currentAttempt =1;
 
     @Override
     public boolean retry(ITestResult result) {
-
+                //1<3 2<3 3<3
         if(currentAttempt<MAX_ATTEMPS){
-            currentAttempt++;
+            currentAttempt++; //2 3
             return true;
         }
 

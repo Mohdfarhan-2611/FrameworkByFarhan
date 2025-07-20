@@ -19,6 +19,7 @@ import java.util.Date;
 import java.util.List;
 
 public class BasePage {
+
     //constructor
     protected BasePage(){};
 
