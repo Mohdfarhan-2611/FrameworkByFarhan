@@ -1,6 +1,7 @@
 package org.example.Reports;
 
 import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import org.apache.commons.io.FileUtils;
 import org.example.Driver.DriverManagerTL;
@@ -36,7 +37,8 @@ public final class ExtentReport {
 
 
     public static void createTest(String testcaseName){
-        ExtentReportManager.setExtentTest(extentReport.createTest(testcaseName));
+        ExtentTest test = extentReport.createTest(testcaseName);
+        ExtentReportManager.setExtentTest(test);
 
     }
 
